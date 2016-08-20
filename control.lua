@@ -18,7 +18,7 @@ local function onKey(event)
   local ent = p.selected
   if ent and ent.valid and ent.name == "pushbutton" then
     local dist = math.abs(p.position.x-ent.position.x)+math.abs(p.position.y-ent.position.y) --the player should stand near the ent
-    if dist < 10 then
+    if dist < 15 then
       local control = ent.get_or_create_control_behavior()
         control.parameters={parameters={{index=1,count=1,signal={name="signal-black",type="virtual"}}}}
       if not global.active_buttons then global.active_buttons = {} end
