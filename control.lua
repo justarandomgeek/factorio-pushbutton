@@ -29,14 +29,18 @@ end
 
 local function onBuilt(event)
   local pushbutton = event.created_entity
-  local control = pushbutton.get_or_create_control_behavior()
-  control.enabled=false
+  if pushbutton.name == "pushbutton" then
+    local control = pushbutton.get_or_create_control_behavior()
+    control.enabled=false
+  end
 end
 
 local function onPaste(event)
   local pushbutton = event.destination
-  local control = pushbutton.get_or_create_control_behavior()
-  control.enabled=false
+  if pushbutton.name == "pushbutton" then
+    local control = pushbutton.get_or_create_control_behavior()
+    control.enabled=false
+  end
 end
 
 script.on_event(defines.events.on_tick, onTick)
