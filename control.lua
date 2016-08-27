@@ -2,7 +2,7 @@ local function onTick()
   -- Clear any buttons from last tick
   if global.deactivating_buttons then
     for i,control in pairs(global.deactivating_buttons) do
-      control.parameters=nil
+      control.enabled=false
     end
     global.deactivating_buttons = nil
   end
@@ -20,7 +20,7 @@ local function onKey(event)
     local dist = math.abs(p.position.x-ent.position.x)+math.abs(p.position.y-ent.position.y) --the player should stand near the ent
     if dist < 15 then
       local control = ent.get_or_create_control_behavior()
-        control.parameters={parameters={{index=1,count=1,signal={name="signal-black",type="virtual"}}}}
+        control.enabled=true
       if not global.active_buttons then global.active_buttons = {} end
       global.active_buttons[ent.unit_number] = control
     end
