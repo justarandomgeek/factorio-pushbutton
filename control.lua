@@ -27,6 +27,21 @@ local function onKey(event)
   end
 end
 
+local function onBuilt(event)
+  local pushbutton = event.created_entity
+  local control = pushbutton.get_or_create_control_behavior()
+  control.enabled=false
+end
+
+local function onPaste(event)
+  local pushbutton = event.destination
+  local control = pushbutton.get_or_create_control_behavior()
+  control.enabled=false
+end
+
 script.on_event(defines.events.on_tick, onTick)
+script.on_event(defines.events.on_built_entity, onBuilt)
+script.on_event(defines.events.on_robot_built_entity, onBuilt)
+script.on_event(defines.events.on_entity_settings_pasted,onPaste)
 
 script.on_event("pushbutton-key", onKey)
