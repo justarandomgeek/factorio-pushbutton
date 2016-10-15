@@ -2,7 +2,7 @@ data:extend{
   {
     type = "item",
     name = "pushbutton",
-    icon = "__base__/graphics/icons/constant-combinator.png",
+    icon = "__pushbutton__/graphics/pushbutton-icon.png",
     flags = {"goes-to-quickbar"},
     subgroup = "circuit-network",
     place_result="pushbutton",
