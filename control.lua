@@ -16,13 +16,17 @@ end
 local function onKey(event)
   local p = game.players[event.player_index]
   local ent = p.selected
-  if ent and ent.valid and ent.name == "pushbutton" then
+  if ent and ent.valid then
     local dist = math.abs(p.position.x-ent.position.x)+math.abs(p.position.y-ent.position.y) --the player should stand near the ent
     if dist < 15 or p.character == nil then -- if character is in range, or we're in god mode
       local control = ent.get_or_create_control_behavior()
+      if ent.name == "pushbutton" then
         control.enabled=true
-      if not global.active_buttons then global.active_buttons = {} end
-      global.active_buttons[ent.unit_number] = control
+        if not global.active_buttons then global.active_buttons = {} end
+        global.active_buttons[ent.unit_number] = control
+      elseif ent.name == "constant-combinator" then -- toggle constant combinators
+        control.enabled = not control.enabled
+      end
     end
   end
 end
