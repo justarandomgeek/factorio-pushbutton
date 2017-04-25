@@ -6,12 +6,11 @@ p.icon = "__pushbutton__/graphics/pushbutton-icon.png"
 
 local sprite = {
   filename = "__pushbutton__/graphics/pushbutton.png",
-  x = 1,
-  y = 1,
   width = 64,
   height = 44,
   frame_count = 1,
-  shift = {0.4375, 0.3125},
+  --shift = {0.4375, 0.3125},
+  shift = {0.4375, 0.0},
 }
 p.sprites =
 {
