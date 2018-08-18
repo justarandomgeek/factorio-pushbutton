@@ -6,5 +6,5 @@ if data.raw.technology["circuit-network"] then
     {
       type = "unlock-recipe",
       recipe = "pushbutton"
-    }
+    })
 end
