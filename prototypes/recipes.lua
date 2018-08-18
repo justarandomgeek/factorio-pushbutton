@@ -2,7 +2,7 @@ data:extend{
   {
     type = "recipe",
     name = "pushbutton",
-    enabled = "true",
+    enabled = false,
     ingredients =
     {
       {"constant-combinator", 1},
