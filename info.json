@@ -1,11 +1,11 @@
 {
   "name": "pushbutton",
-  "version": "0.16.0",
-  "factorio_version": "0.16",
+  "version": "0.17.0",
+  "factorio_version": "0.17",
   "title": "Pushbutton",
   "author": "justarandomgeek",
   "homepage": "",
   "contact": "justarandomgeek@gmail.com",
   "description": "A Pushbutton that emits the configured signal as a pulse when pressed.",
-  "dependencies": ["base >= 0.16.0"]
+  "dependencies": ["base >= 0.17.0"]
 }
