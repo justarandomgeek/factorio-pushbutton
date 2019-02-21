@@ -2,7 +2,7 @@ data:extend({
   {
     type = "custom-input",
     name = "pushbutton-key",
-    key_sequence = "f",
+    key_sequence = "F",
     -- consuming = "script-only"
 
     -- 'consuming'
