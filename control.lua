@@ -2,7 +2,9 @@ local function onTick()
   -- Clear any buttons from last tick
   if global.deactivating_buttons then
     for i,control in pairs(global.deactivating_buttons) do
-      control.enabled=false
+      if control.valid then
+        control.enabled=false
+      end
     end
     global.deactivating_buttons = nil
   end
