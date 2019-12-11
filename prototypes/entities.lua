@@ -3,6 +3,7 @@ p.name = "pushbutton"
 p.minable.result = "pushbutton"
 
 p.icon = "__pushbutton__/graphics/pushbutton-icon.png"
+p.icon_size = 32
 
 local sprite = {
   filename = "__pushbutton__/graphics/pushbutton.png",
