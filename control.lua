@@ -32,10 +32,9 @@ local function onKey(event)
   end
 end
 
-local function onBuilt(event)
-  local pushbutton = event.created_entity
-  if pushbutton.name == "pushbutton" then
-    local control = pushbutton.get_or_create_control_behavior()
+local function onBuilt(entity)
+  if entity.name == "pushbutton" then
+    local control = entity.get_or_create_control_behavior()
     control.enabled=false
   end
 end
@@ -49,8 +48,14 @@ local function onPaste(event)
 end
 
 script.on_event(defines.events.on_tick, onTick)
-script.on_event(defines.events.on_built_entity, onBuilt)
-script.on_event(defines.events.on_robot_built_entity, onBuilt)
 script.on_event(defines.events.on_entity_settings_pasted,onPaste)
-
 script.on_event("pushbutton-key", onKey)
+
+local filters = {
+  {filter="name",name="pushbutton"}
+}
+script.on_event(defines.events.on_built_entity, function(event) onBuilt(event.created_entity) end, filters)
+script.on_event(defines.events.on_robot_built_entity, function(event) onBuilt(event.created_entity) end, filters)
+script.on_event(defines.events.script_raised_built, function(event) onBuilt(event.entity) end)
+script.on_event(defines.events.script_raised_revive, function(event) onBuilt(event.entity) end)
+script.on_event(defines.events.on_entity_cloned, function(event) onBuilt(event.destination) end)
