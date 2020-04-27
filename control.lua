@@ -27,6 +27,8 @@ local function onKey(event)
     elseif ent.name == "constant-combinator" then -- toggle constant combinators
       local control = ent.get_or_create_control_behavior()
       control.enabled = not control.enabled
+    elseif ent.name == "power-switch" then -- toggle power switches
+      ent.power_switch_state = not ent.power_switch_state
     end
   end
 end
