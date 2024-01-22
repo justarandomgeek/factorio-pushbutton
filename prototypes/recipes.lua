@@ -9,6 +9,8 @@ data:extend{
       {"electronic-circuit", 1},
       {"advanced-circuit", 1},
     },
-    result="pushbutton",
-  },
+    results={
+      {type="item", name="pushbutton", amount=1},
+    },
+  } --[[@as data.RecipePrototype]],
 }
