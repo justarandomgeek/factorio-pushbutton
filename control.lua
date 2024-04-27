@@ -18,16 +18,17 @@ end
 local function onKey(event)
   local p = game.players[event.player_index]
   local ent = p.selected
-  if ent and ent.valid and p.can_reach_entity(ent) then -- if character is in range, or we're in god mode
-    if ent.name == "pushbutton" then
+  if ent and ent.valid then
+    local inrange = p.can_reach_entity(ent) -- if character is in range, or we're in god mode
+    if ent.name == "pushbutton" and inrange then
       local control = ent.get_or_create_control_behavior()
       control.enabled=true
       if not global.active_buttons then global.active_buttons = {} end
       global.active_buttons[ent.unit_number] = control
-    elseif ent.name == "constant-combinator" then -- toggle constant combinators
+    elseif ent.name == "constant-combinator" and inrange then -- toggle constant combinators
       local control = ent.get_or_create_control_behavior()
       control.enabled = not control.enabled
-    elseif ent.name == "power-switch" then -- toggle power switches
+    elseif ent.name == "power-switch" then -- toggle power switches, but no range limit
       ent.power_switch_state = not ent.power_switch_state
     end
   end
