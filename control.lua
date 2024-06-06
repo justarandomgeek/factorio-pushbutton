@@ -61,3 +61,56 @@ script.on_event(defines.events.on_robot_built_entity, function(event) onBuilt(ev
 script.on_event(defines.events.script_raised_built, function(event) onBuilt(event.entity) end)
 script.on_event(defines.events.script_raised_revive, function(event) onBuilt(event.entity) end)
 script.on_event(defines.events.on_entity_cloned, function(event) onBuilt(event.destination) end)
+
+
+
+if script.active_mods["compaktcircuit"] then
+  
+  local function defineCompakt()
+    
+    remote.add_interface("pushbutton+compaktcircuit", {
+      
+      get_info = function(entity)
+        --game.print("getting info")
+        return nil -- pushbutton has no savable state
+      end,
+      
+      create_packed_entity = function(info, surface, position, force)
+        --game.print("creating packed")
+        local entity = surface.create_entity {
+          name = "pushbutton-packed",
+          force = force,
+          position = position,
+          direction = info and info.direction,
+        }
+        local control = entity.get_or_create_control_behavior()
+        control.enabled = false
+        return entity
+      end,
+      
+      create_entity = function(info, surface, force)
+        --game.print("creating normal")
+        local entity = surface.create_entity {
+          name = "pushbutton",
+          force = force,
+          position = info and info.position,
+          direction = info and info.direction,
+        }
+        local control = entity.get_or_create_control_behavior()
+        control.enabled = false
+        return entity
+      end
+      
+    })
+    
+    remote.call("compaktcircuit", "add_combinator", {
+      name = "pushbutton",
+      packed_names = { "pushbutton-packed" },
+      interface_name = "pushbutton+compaktcircuit"
+    })
+    
+  end
+  script.on_load(defineCompakt)
+  script.on_init(defineCompakt)
+  
+end
