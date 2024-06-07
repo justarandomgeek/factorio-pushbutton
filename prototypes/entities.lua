@@ -74,20 +74,3 @@ p.circuit_wire_connection_points =
 }
 
 data:extend{p}
-
-
-
-if mods["compaktcircuit"] then
-  
-  local compakt_entity = table.deepcopy(p)
-  compakt_entity.name = "pushbutton-packed"
-  compakt_entity.flags = { 'placeable-off-grid' , "hidden", "hide-alt-info", "not-on-map", "not-upgradable", "not-deconstructable", "not-blueprintable" }
-  compakt_entity.collision_mask = {}
-  compakt_entity.minable = nil
-  compakt_entity.selectable_in_game = false
-  compakt_entity.collision_box = nil
-  compakt_entity.sprites = nil
-  compakt_entity.activity_led_sprites = nil
-  data:extend { compakt_entity }
-  
-end
