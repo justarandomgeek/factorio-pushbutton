@@ -11,6 +11,7 @@
   "package": {
     "ignore": [
       "**/*.blend"
-    ]
+    ],
+    "sync_portal_details": true
   }
 }
