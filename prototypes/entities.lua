@@ -4,14 +4,12 @@ p.minable.result = "pushbutton"
 
 p.icon = "__pushbutton__/graphics/pushbutton-icon.png"
 p.icon_size = 32
-p.icon_mipmaps = 1
 
 local sprite = {
   filename = "__pushbutton__/graphics/pushbutton.png",
   width = 64,
   height = 44,
   frame_count = 1,
-  --shift = {0.4375, 0.3125},
   shift = {0.4375, 0.0},
 }
 p.sprites =
@@ -71,6 +69,19 @@ p.circuit_wire_connection_points =
   circuit_wire_connection_points,
   circuit_wire_connection_points,
   circuit_wire_connection_points,
+}
+
+p.created_effect = {
+  type = "direct",
+  action_delivery = {
+    type = "instant",
+    source_effects = {
+      {
+        type = "script",
+        effect_id = "pushbutton-created",
+      },
+    }
+  }
 }
 
 data:extend{p}
