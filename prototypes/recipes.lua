@@ -5,9 +5,8 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      { type="item", name="constant-combinator", amount=1},
-      { type="item", name="electronic-circuit", amount=1},
-      { type="item", name="advanced-circuit", amount=1},
+      {type = "item", name = "copper-cable", amount = 5},
+      {type = "item", name = "electronic-circuit", amount = 2}
     },
     results={
       {type="item", name="pushbutton", amount=1},
