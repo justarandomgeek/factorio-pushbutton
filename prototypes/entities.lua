@@ -2,40 +2,73 @@ local p = table.deepcopy(data.raw["constant-combinator"]["constant-combinator"])
 p.name = "pushbutton"
 p.minable.result = "pushbutton"
 
-p.icon = "__pushbutton__/graphics/pushbutton-icon.png"
+p.icon = "__pushbutton__/graphics/pushbutton_icon.png"
 p.icon_size = 32
 p.icon_mipmaps = 1
 
-local sprite = {
-  filename = "__pushbutton__/graphics/pushbutton.png",
-  width = 64,
-  height = 44,
-  frame_count = 1,
-  --shift = {0.4375, 0.3125},
-  shift = {0.4375, 0.0},
-}
 p.sprites =
-{
-  north = sprite,
-  east = sprite,
-  south = sprite,
-  west = sprite,
-}
+  make_4way_animation_from_spritesheet({ layers =
+    {
+      {
+        filename = "__pushbutton__/graphics/hr-pushbutton.png",
+        width = 128,
+        height = 128,
+        frame_count = 1,
+        shift = util.by_pixel(0, 0),
+        scale = 0.5,
+      },
+      {
+        filename = "__pushbutton__/graphics/hr-pushbuttonsh.png",
+        width = 176,
+        height = 80,
+        frame_count = 1,
+        shift = util.by_pixel(0, 0),
+        draw_as_shadow = true,
+        scale = 0.5,
+      },
+    }
+  })
 
-local activity_led_light_offset = {-0.296875, 0.125}
-local activity_led_sprite = {
-  filename = "__pushbutton__/graphics/pushbutton-activity-led.png",
-  width = 11,
-  height = 10,
+
+local activity_led_light_offset = {0, 0}
+local activity_led_spriten = {
+  filename = "__pushbutton__/graphics/buttonled128.1.png",
+  width = 128,
+  height = 128,
   frame_count = 1,
-  shift = activity_led_light_offset,
+  draw_as_glow = true,
+  scale = 0.5,
+}
+local activity_led_spritee = {
+  filename = "__pushbutton__/graphics/buttonled128.2.png",
+  width = 128,
+  height = 128,
+  frame_count = 1,
+  draw_as_glow = true,
+  scale = 0.5,
+}
+local activity_led_sprites = {
+  filename = "__pushbutton__/graphics/buttonled128.3.png",
+  width = 128,
+  height = 128,
+  frame_count = 1,
+  draw_as_glow = true,
+  scale = 0.5,
+}
+local activity_led_spritew = {
+  filename = "__pushbutton__/graphics/buttonled128.4.png",
+  width = 128,
+  height = 128,
+  frame_count = 1,
+  draw_as_glow = true,
+  scale = 0.5,
 }
 p.activity_led_sprites =
 {
-  north = activity_led_sprite,
-  east  = activity_led_sprite,
-  south = activity_led_sprite,
-  west  = activity_led_sprite,
+  north = activity_led_spriten,
+  east  = activity_led_spritee,
+  south = activity_led_sprites,
+  west  = activity_led_spritew,
 }
 
 activity_led_light =
