@@ -51,3 +51,45 @@ script.on_event(defines.events.on_script_trigger_effect, function (event)
     end
   end
 end)
+
+
+
+if script.active_mods["compaktcircuit"] then
+  
+  local function defineCompakt()
+    
+    remote.add_interface("pushbutton+compaktcircuit", {
+      
+      get_info = function(entity)
+        return nil -- pushbutton has no savable state
+      end,
+      
+      create_packed_entity = function(info, surface, position, force)
+        return nil
+      end,
+      
+      create_entity = function(info, surface, force)
+        local entity = surface.create_entity {
+          name = "pushbutton",
+          force = force,
+          position = info and info.position,
+          direction = info and info.direction,
+        }
+        local control = entity.get_or_create_control_behavior()
+        control.enabled = false
+        return entity
+      end
+      
+    })
+    
+    remote.call("compaktcircuit", "add_combinator", {
+      name = "pushbutton",
+      packed_names = nil,
+      interface_name = "pushbutton+compaktcircuit"
+    })
+    
+  end
+  script.on_load(defineCompakt)
+  script.on_init(defineCompakt)
+  
+end
