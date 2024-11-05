@@ -1,3 +1,4 @@
+local util = require("util")
 local p = table.deepcopy(data.raw["constant-combinator"]["constant-combinator"])
 p.name = "pushbutton"
 p.minable.result = "pushbutton"
@@ -79,24 +80,56 @@ p.activity_led_light_offsets =
   activity_led_light_offset,
 }
 
-local circuit_wire_connection_points = {
-  shadow =
-  {
-    red = {0.7, 0.4},
-    green = {0.7, 0.4},
-  },
-  wire =
-  {
-    red = {0.4, 0.2265625},
-    green = {0.3125, 0.27734375},
-  }
-}
 p.circuit_wire_connection_points =
 {
-  circuit_wire_connection_points,
-  circuit_wire_connection_points,
-  circuit_wire_connection_points,
-  circuit_wire_connection_points,
+  {
+    shadow =
+    {
+      red = util.by_pixel_hr(41, -6),
+      green = util.by_pixel_hr(20, -6)
+    },
+    wire =
+    {
+      red = util.by_pixel_hr(10, -27),
+      green = util.by_pixel_hr(-10, -27)
+    }
+  },
+  {
+    shadow =
+    {
+      red = util.by_pixel_hr(50, 16),
+      green = util.by_pixel_hr(50, 2)
+    },
+    wire =
+    {
+      red = util.by_pixel_hr(22, -4),
+      green = util.by_pixel_hr(22, -18)
+    }
+  },
+  {
+    shadow =
+    {
+      red = util.by_pixel_hr(20, 25),
+      green = util.by_pixel_hr(36, 25)
+    },
+    wire =
+    {
+      red = util.by_pixel_hr(-10, 5),
+      green = util.by_pixel_hr(10, 5)
+    }
+  },
+  {
+    shadow =
+    {
+      red = util.by_pixel_hr(2, -5),
+      green = util.by_pixel_hr(2, 10)
+    },
+    wire =
+    {
+      red = util.by_pixel_hr(-22, -18),
+      green = util.by_pixel_hr(-22, -4)
+    }
+  }
 }
 
 p.created_effect = {
