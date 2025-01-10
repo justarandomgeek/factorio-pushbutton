@@ -128,17 +128,4 @@ p.circuit_wire_connection_points =
   }
 }
 
-p.created_effect = {
-  type = "direct",
-  action_delivery = {
-    type = "instant",
-    source_effects = {
-      {
-        type = "script",
-        effect_id = "pushbutton-created",
-      },
-    }
-  }
-}
-
 data:extend{p}
