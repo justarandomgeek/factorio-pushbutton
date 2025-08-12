@@ -7,7 +7,7 @@
   "homepage": "",
   "contact": "justarandomgeek@gmail.com",
   "description": "A Pushbutton that emits the configured signal as a pulse when pressed.",
-  "dependencies": ["base >= 2.0.30"],
+  "dependencies": ["base >= 2.0.30", "? larger-display-panels"],
   "package": {
     "ignore": [
       "**/*.blend"
