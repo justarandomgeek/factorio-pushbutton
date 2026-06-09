@@ -1,13 +1,13 @@
 {
   "name": "pushbutton",
-  "version": "2.0.6",
-  "factorio_version": "2.0",
+  "version": "2.1.0",
+  "factorio_version": "2.1",
   "title": "Pushbutton",
   "author": "justarandomgeek",
   "homepage": "",
   "contact": "justarandomgeek@gmail.com",
   "description": "A Pushbutton that emits the configured signal as a pulse when pressed.",
-  "dependencies": ["base >= 2.0.30", "? larger-display-panels"],
+  "dependencies": ["base", "? larger-display-panels"],
   "package": {
     "ignore": [
       "**/*.blend"
